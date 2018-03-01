@@ -1,4 +1,4 @@
-# vravity
+# vgravity
 
 > A Vue.js project
 
