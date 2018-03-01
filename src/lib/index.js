@@ -41,8 +41,27 @@ export default (Vue) => {
         }
         x += 90;
         y += 90;
-        target.style.top = direction*(conf.gy * x / 180 - conf.gy/2) + "px";
-        target.style.left = direction*(conf.gx * y / 180 - conf.gx/2) + "px";
+        if(!!objM.rotateX) {
+          target.style['-webkit-transform-style'] = `preserve-3d`
+          target.style['transform-style'] = `preserve-3d`
+          target.style['-webkit-transform'] = `rotateX(${y*conf.gx}deg)`
+          target.style['transform'] = `rotateX(${y*conf.gx}deg)`
+        }else if(!!objM.rotateY){
+          target.style['-webkit-transform-style'] = `preserve-3d`
+          target.style['transform-style'] = `preserve-3d`
+          target.style['-webkit-transform'] = `rotateY(${y*conf.gy}deg)`
+          target.style['transform'] = `rotateY(${y*conf.gy}deg)`
+        }else if(!!objM.rotate){
+          target.style['-webkit-transform-style'] = `preserve-3d`
+          target.style['transform-style'] = `preserve-3d`
+          target.style['-webkit-transform'] = `rotateX(${y*conf.gx}deg)`
+          target.style['transform'] = `rotateX(${y*conf.gx}deg)`
+          target.style['-webkit-transform'] = `rotateY(${y*conf.gy}deg)`
+          target.style['transform'] = `rotateY(${y*conf.gy}deg)`
+        }else {
+          target.style.top = direction*(conf.gy * x / 180 - conf.gy/2) + "px";
+          target.style.left = direction*(conf.gx * y / 180 - conf.gx/2) + "px";
+        }
       }
       window.addEventListener('deviceorientation', handleOrientation);
     },
