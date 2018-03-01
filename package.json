@@ -1,7 +1,7 @@
 {
   "name": "vgravity",
   "description": "重力感应效果",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "张应颖 <1184762165@qq.com>",
   "license": "MIT",
   "main": "dist/vgravity.js",
